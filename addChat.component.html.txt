@@ -1,0 +1,39 @@
+<!--Add new chat-->
+<div class="add-chat">
+    <h3>Create New Chat</h3>
+    <form [formGroup]="chatForm" (ngSubmit)="save()" #formDir="ngForm" novalidate enctype="multipart/form-data">
+
+        <div class="form-group chat-header">
+            <label class="control-label" for="queryHeader">Chat Header:</label>
+            <input class="form-control" type="text" formControlName="queryHeader" [(ngModel)]="createChatObject.queryHeader" name="header" />
+            <div class="error-container">
+                <span class="error-text" *ngIf="IsBlankTextMessage">
+                    Chat Header is required.
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class=" control-label" for="messageText">Chat Text:</label>
+            <textarea class="form-control chat-textarea" rows="5" formControlName="messageText" [(ngModel)]="createChatObject.messageText" name="msgtext"></textarea>
+        </div>
+
+        <div class="attach-file-area">
+            <i class="fa fa-paperclip" aria-hidden="true"></i>
+            <label for="attachmentPath">Attach file here</label>
+            <div class="select-file">
+                <input type="file" formControlName="attachmentPath" accept="image/*" multiple id="avatar" (change)="onFileChange($event)" #fileInput />
+                <button class="delete-file"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </div>
+            <div class="action-area">
+                <button class="btn" type="submit" (click)="save()">Save</button>
+                <button class="btn btn-normal" type="button" (click)="cancel()">Cancel</button>
+            </div>
+
+            <!--<div class="select-file">
+                <input type="file" id="btnUpload" value="Upload" (change)="fileChange($event)" class="upload" />
+                <button class="delete-file"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </div>-->
+        </div>
+    </form>
+</div>

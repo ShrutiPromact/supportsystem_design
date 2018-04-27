@@ -1,0 +1,412 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*Comman design*/
+$color_skyblue: #2f85c7;
+$color_navy_blue: #083961;
+$color_black: #000000;
+$color_white: #FFFFFF;
+$color_danger-color: #FF0000;
+$color_border: #e6e6e6;
+$color_navyblue_hover: #0d61a5;
+
+html {
+    height: 100%;
+}
+
+body {
+    font-size: 18px;
+    font-family: "Open Sans", sans-serif;
+    height: 100%;
+}
+
+a, button {
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+input[type=file]:focus {
+    outline: none !important;
+}
+
+p {
+    text-align: justify;
+    font-size: 18px;
+}
+
+label {
+    color: #636363 !important;
+    font-weight: normal !important;
+    font-size: 14px;
+}
+
+h2, h3 {
+    color: $color_navy_blue !important;
+    //font-family: "roboto-bold";
+    font-weight: bold !important;
+}
+
+/*button Design*/
+.btn {
+    color: $color_white;
+    background-color: $color_navy_blue;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+
+    &:focus, &:hover {
+        color: $color_white !important;
+        background-color: $color_navyblue_hover;
+        outline: none !important;
+    }
+}
+
+.btn-normal {
+    background-color: #808080;
+}
+
+.btn-blue {
+    background-color: $color_skyblue;
+}
+
+.btn + .btn {
+    margin: 8px;
+}
+
+.btn:active:focus {
+    color: $color_white !important;
+    outline: none;
+}
+
+/*main-content design*/
+.main-content {
+    margin-top: 80px;
+    padding: 10px 30px;
+    position: relative;
+}
+
+/*chat list design*/
+.create-chat-btn {
+    float: right;
+
+    &:hover {
+        background-color: $color_navyblue_hover;
+        color: $color_white;
+    }
+}
+
+.list-container {
+    margin-top: 50px;
+
+    .list-group {
+
+        li {
+            border: 1px solid $color_border;
+            background-color: #f2f2f2;
+            list-style: none;
+            margin-bottom: 20px;
+            height: 45px;
+
+            .chat-list-group {
+
+                .chat-link {
+                    display: block;
+                    margin-left: 30px;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    cursor: pointer;
+                    margin-top: 10px;
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: $color_skyblue;
+
+                    &:visited {
+                        color: #595959;
+                    }
+
+                    &:hover {
+                        color: $color_navyblue_hover;
+                    }
+                }
+
+                .chat-time {
+                    float: right;
+                    margin-top: 10px;
+                    font-weight: 600;
+                    margin-right: 30px;
+                    color: #595959;
+
+                    i {
+                        color: #6a52c7;
+                        background-color: none;
+                        margin-left: 15px;
+                        vertical-align: middle;
+                        font-size: 20px;
+                        color: $color_skyblue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*add new chat*/
+form {
+    margin-top: 40px;
+    position: relative;
+
+    .chat-header {
+        height: 50px;
+    }
+
+    .form-group {
+        .control-label {
+            width: 110px;
+            float: left;
+            text-align: right;
+            padding: 0px 8px;
+        }
+
+        .form-control {
+            width: 400px;
+            outline: none;
+        }
+
+        .error-container {
+            margin-left: 110px;
+
+            .error-text {
+                font-size: 11px;
+                color: $color_danger-color;
+            }
+        }
+
+        .chat-textarea {
+            resize: none;
+            overflow: auto;
+            outline: none;
+        }
+    }
+
+    .attach-file-area {
+        margin-left: 110px;
+
+        i {
+            font-size: 16px;
+        }
+
+        input {
+            outline: none;
+            margin-top: 10px;
+            float: left;
+        }
+
+        .delete-file {
+            font-size: 24px;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            color: $color_danger-color;
+        }
+
+        .action-area {
+            margin-top: 20px;
+
+            button {
+                padding: 8px 25px;
+            }
+        }
+    }
+}
+
+/*Chat detail page*/
+.chat-detail-header {
+    position: fixed;
+    overflow: hidden;
+    width: 922px;
+    background-color: $color_white;
+    border: 1px solid transparent;
+
+    h2 {
+        float: left;
+        color: $color_skyblue;
+        text-transform: uppercase;
+        margin: 0px;
+    }
+
+    .btn-blue {
+        float: right;
+
+        &:hover {
+            background-color: $color_navyblue_hover;
+            color: $color_white;
+        }
+    }
+}
+
+.msg-box {
+    margin-top: 55px;
+    margin-bottom: 105px;
+
+    li {
+        border: 1px solid $color_border;
+        list-style: none;
+        margin-bottom: 20px;
+        height: 105px;
+
+        .msg-header {
+            border-bottom: 1px solid $color_border;
+            height: 35px;
+            padding: 0px 10px 0px 18px;
+            background-color: #e6e6e6;
+
+            h4 {
+                float: left;
+                text-transform: uppercase;
+                color: #595959;
+                margin-bottom: 0px;
+            }
+
+            p {
+                float: right;
+                font-size: 15px;
+                padding: 5px 0px 5px 0px;
+                word-break: break-word;
+                color: #595959;
+                margin-bottom: 0px;
+            }
+        }
+
+        .msg-detail {
+            overflow-y: auto;
+            height: 70px;
+            width: 100%;
+            padding: 5px 5px 2px 18px;
+
+            p {
+                color: $color_skyblue;
+                font-size: 15px;
+                word-break: break-word;
+                text-align: justify;
+            }
+        }
+    }
+}
+
+/*chat detail footar*/
+.reply-footer {
+    overflow: hidden;
+    background-color: $color_white;
+    position: fixed;
+    bottom: 0;
+    width: 922px;
+
+    .reply-container {
+        border: 2px solid #b3b3b3;
+
+        .chat-reply {
+            resize: none;
+            overflow: auto;
+            outline: none;
+            width: 96%;
+            line-height: 1.4;
+            text-align: justify;
+            height: auto;
+            padding: 10px;
+            border: none;
+            color: $color_black;
+            vertical-align: middle;
+            word-break: break-word;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+            vertical-align: middle;
+
+            i {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .action-area {
+        display: inline;
+
+        .add-file {
+            display: inline;
+            margin-top: 12px;
+        }
+    }
+}
+
+/*Responsive chat detail page*/
+@media only screen and (max-width: 600px) {
+    .main-content {
+        margin-top: 80px;
+        padding: 10px 30px;
+
+        .chat-detail-header {
+            position: fixed;
+            overflow: hidden;
+            max-width: 570px;
+            min-width: 220px;
+
+            h2 {
+                float: left;
+            }
+
+            .btn-back {
+                float: right;
+                margin-top: 20px;
+                padding: 5px 25px;
+            }
+        }
+    }
+
+    .reply-footer {
+        overflow: hidden;
+        background-color: $color_white;
+        position: fixed;
+        bottom: 0;
+    }
+}
+
+/*Responsive add chat page*/
+@media only screen and (max-width: 900px) {
+    .add-chat {
+        min-width: 320px;
+
+        form {
+            .form-group {
+                .form-control {
+                    min-width: 200px;
+                }
+
+                .error-container {
+                    margin-left: 0px;
+
+                    .error-text {
+                        font-size: 6px;
+                        color: $color_danger-color;
+                    }
+                }
+
+                .chat-textarea {
+                    resize: none;
+                    overflow: auto;
+                    min-width: 200px;
+                }
+            }
+        }
+
+        .attach-file-area {
+            margin-left: 0px;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<!--Chat-list-->
+<p *ngIf="!chatLists"><em>Loading...</em></p>
+
+<!--<input type="button" [routerLink]="['/Create-chat/hetul/kinjal/1/1']" value="Create New" class="form-control" style="width:20%"/>-->
+<button class="btn btn-blue create-chat-btn" type="button" [routerLink]="CreateChat" value="Create New">Create new chat</button>
+
+
+<div class="list-container">
+    <ul *ngIf="chatLists" class="list-group">
+        <li *ngFor="let chat of chatLists">
+            <div class="chat-list-group">
+                <a class="chat-link pull-left" [routerLink]="[Chatdetails,chat.chatId,chat.queryHeader]" id="mylink">{{ chat.queryHeader }}</a>
+                <h5 class="chat-time pull-right" id="mylink">{{chat.messageTime}}<span><i class="fa fa-check-circle-o" *ngIf="chat.isRead"></i></span></h5>
+            </div>
+            <!--<td><span *ngIf="!chat.isRead" style="color:red">New</span></td>-->
+        </li>
+    </ul>
+</div>

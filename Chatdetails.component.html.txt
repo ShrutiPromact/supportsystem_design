@@ -1,0 +1,56 @@
+<!--Chat detail page-->
+<script>
+    function do_resize(textbox) {
+    var maxrows = 4;
+    var txt = textbox.value;
+   var cols = textbox.cols;
+
+    var arraytxt = txt.split('\n');
+    var rows = arraytxt.length;
+
+    for (i = 0; i < arraytxt.length; i++)
+        rows += parseInt(arraytxt[i].length / cols);
+
+    if (rows > maxrows) textbox.rows = maxrows;
+    else textbox.rows = rows;
+ }
+</script>
+
+<div class="chat-detail-header">
+    <h2>{{ChatHeader}}</h2>
+    <button class="btn btn-blue" type="button" [routerLink]="fetchchatList">Back</button>
+</div>
+
+<p *ngIf="!chatHistory"><em>Loading...</em></p>
+
+<div class="msg-box">
+    <ul *ngIf="chatHistory" class="list-group">
+        <li *ngFor="let chat of chatHistory">
+            <div class="msg-header">
+                <h4>{{chat.messageSenderId}}</h4>
+                <p>{{chat.messageTime}}</p>
+            </div>
+
+            <div class="msg-detail">
+                <p><span *ngIf="!chat.isAttachment">{{ chat.messageText }}</span></p>
+                <p><span *ngIf="chat.isAttachment">{{chat.attachmentPath}}</span></p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="reply-footer">
+    <div class="reply-container">
+        <textarea class="chat-reply" rows="1" placeholder="Add text here..." onkeyup="new do_resize(this);" id="msgtext" [(ngModel)]="chatDetailObject.messageText" name="msgtext"></textarea>
+        <!--<button type="button"><i class="fa fa-paperclip"></i></button>-->
+    </div>
+    <div class="action-area">
+            <input class="add-file" type="file" formControlName="attachmentPath" accept="image/*" multiple id="avatar" (change)="onFileChange($event)" #fileInput />
+            <button type="submit" class="btn" (click)="save()">Save</button>
+            <button type="button" class="btn btn-blue" (click)="ExportPdf()">Export PDF</button>
+            <button class="btn btn-blue" type="submit" (click)="SendEmail()">Send Email</button>
+    </div>
+</div>
+
+
+
